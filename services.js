@@ -4,7 +4,7 @@ var request = require('request');
 var services = [];
 
 var s = new Service("Adf.ly");
-s.rule = new RegExp("http://adf\.ly/(.+)");
+s.hosts = ['adf.ly'];
 s.run = function(url, callback) {
 	request(url, function(error, response, body) {
 		if (error || response.statusCode != 200) {
