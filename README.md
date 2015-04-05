@@ -14,13 +14,13 @@ w.decrypt(function(err, result) {
 
 The output will be 
 ```
-https://github.com/matteocontrini/node-bypasser/
+Decrypted: https://github.com/matteocontrini/node-bypasser/
 ```
 
 ## Supported websites
 * Adf.ly
 
-## Coming
+## Coming soon
 ```
 // TODO linkbucks.com
 // TODO sh.st
