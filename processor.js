@@ -6,8 +6,8 @@ function findService(urlString) {
 	var found = false;
 	for (var i = 0; i < services.length && !found; i++) {
 		var serv = services[i];
-		for (var i = 0; i < serv.hosts.length && !found; i++) {
-			if (urlobj.hostname.endsWith(serv.hosts[i])) {
+		for (var j = 0; j < serv.hosts.length && !found; j++) {
+			if (urlobj.hostname.endsWith(serv.hosts[j])) {
 				found = true;
 			}
 		}
