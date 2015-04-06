@@ -19,10 +19,10 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 
 ## Supported websites
 * Adf.ly
+* Linkbucks.com (main domain) (5 seconds required)
 
 ## Coming soon
 ```
-// TODO linkbucks.com
 // TODO sh.st
 // TODO adfoc.us
 // TODO bit.ly
