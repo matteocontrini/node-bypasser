@@ -196,8 +196,32 @@ s.run = function(url, callback) {
 };
 services.push(s);
 
-
-// TODO adfoc.us
+var s = new Service("AdFoc.us");
+s.hosts = ['adfoc.us'];
+s.run = function(url, callback) {
+	var options = {
+		uri: url,
+		headers: {
+			'Accept': 'text/html'
+		}
+	}
+	request(options, function(error, response, body) {
+		if (error || response.statusCode != 200) {
+			callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
+			return;
+		}
+		
+		var match = body.match(/click_url = "(.+?)";/);
+		if (!match) {
+			callback('The URL cannot be decrypted');
+			return;
+		}
+		
+		callback(null, match[1]);
+	});
+}
+services.push(s);		
+		
 // TODO bit.ly
 // TODO goo.gl
 
