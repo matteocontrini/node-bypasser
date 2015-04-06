@@ -1,4 +1,5 @@
 var services = require('./services');
+var common = require('./common.js');
 var url = require('url');
 
 function findService(urlString) {
@@ -21,7 +22,3 @@ function findService(urlString) {
 }
 
 module.exports.findService = findService;
-
-String.prototype.endsWith = function(suffix) {
-	return this.indexOf(suffix, this.length - suffix.length) !== -1;
-};
