@@ -4,6 +4,8 @@ var url = require('url');
 
 function findService(urlString) {
 	var urlobj = url.parse(urlString);
+	if (urlobj.hostname == null) return null;
+	
 	var found = false;
 	for (var i = 0; i < services.length && !found; i++) {
 		var serv = services[i];
