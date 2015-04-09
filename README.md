@@ -1,10 +1,16 @@
 # node-bypasser
 Bypass URL shortener websites
 
+## Install
+
+```
+npm install node-bypasser
+```
+
 ## Example:
 
 ```javascript
-var Bypasser = require('./node-bypasser/bypasser.js');
+var Bypasser = require('node-bypasser');
 
 var w = new Bypasser('http://adf.ly/1DX0XD');
 w.decrypt(function(err, result) {
