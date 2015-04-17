@@ -1,6 +1,6 @@
 {
   "name": "node-bypasser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Website ads bypasser (url shorteners)",
   "main": "bypasser.js",
   "keywords": [
