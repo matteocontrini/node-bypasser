@@ -14,5 +14,8 @@
   "dependencies": {
     "request": "^2.55.0"
   },
-  "repository": "matteocontrini/node-bypasser"
+  "repository": "matteocontrini/node-bypasser",
+  "bugs": {
+    "url": "https://github.com/matteocontrini/node-bypasser/issues"
+  }
 }
