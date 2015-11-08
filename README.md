@@ -26,7 +26,7 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 ## Supported websites
 * Adf.ly
 * Linkbucks.com (main domain) (5 seconds required)
-* Shorte.st (sh.st)
+* Shorte.st (sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com)
 * AdFoc.us
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 
