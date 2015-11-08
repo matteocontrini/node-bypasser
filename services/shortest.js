@@ -1,6 +1,6 @@
 /*
 	Shorte.st
-	Hosts: sh.st
+	Hosts: sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com
  */
 
 var request = require('request');
@@ -9,7 +9,7 @@ var Service = require('../Service.js');
 var common  = require('../common.js');
 
 var service = new Service("Shorte.st");
-service.hosts = ['sh.st'];
+service.hosts = ['sh.st','u2ks.com','jnw0.com','digg.to','dh10thbvu.com'];
 
 service.run = function(url, callback) {
 	var options = {
