@@ -26,7 +26,10 @@ Bypasser.prototype.findService = function() {
 		return true;
 	}
 	else {
-		return false;
+    // Assign generic service
+    //TODO: More specific way to reference this service than last element
+    this.service = services[services.length-1];
+    return false;
 	}
 };
 
@@ -66,11 +69,10 @@ Bypasser._findService = function(url) {
  * @param  {Function} callback - Called when a result is ready
  */
 Bypasser.prototype.decrypt = function(callback) {
-	if (!this.service) {
-		callback('URL not recognized as supported');
-		return;
-	}
-	
+
+  // URL not recognized as supported callback will be in Generic service
+  // TODO: Move it back here
+
 	this.service.run(this.url, callback);
 };
 
