@@ -26,9 +26,6 @@ Bypasser.prototype.findService = function() {
 		return true;
 	}
 	else {
-    // Assign generic service
-    //TODO: More specific way to reference this service than last element
-    this.service = services[services.length-1];
     return false;
 	}
 };
@@ -44,24 +41,31 @@ Bypasser._findService = function(url) {
 	if (parsedUrl.hostname == null) return null;
 	
 	var found = false;
-	
+
 	// Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
 		var serv = services[i];
-		
+		var genericService = null;
+
 		// Find a match among hostnames
 		for (var j = 0; j < serv.hosts.length && !found; j++) {
 			if (parsedUrl.hostname.endsWith(serv.hosts[j])) {
 				found = true;
 			}
 		}
+
+    // Assign Generic Service
+    if (serv.name == 'Generic') {
+      genericService = serv;
+    }
 	}
 	
 	if (found) {
 		return serv;
 	}
-	
-	return null;
+
+  // Always return a service here
+	return genericService;
 };
 
 /**
@@ -70,6 +74,9 @@ Bypasser._findService = function(url) {
  */
 Bypasser.prototype.decrypt = function(callback) {
 
+  if (!this.service) {
+    callback('Unexpected error');
+  }
   // URL not recognized as supported callback will be in Generic service
   // TODO: Move it back here
 
