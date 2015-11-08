@@ -1,4 +1,7 @@
-# node-bypasser
+# node-bypasser 
+[![Build Status](https://travis-ci.org/matteocontrini/node-bypasser.svg?branch=master)](https://travis-ci.org/matteocontrini/node-bypasser) 
+[![npm version](https://badge.fury.io/js/node-bypasser.svg)](https://badge.fury.io/js/node-bypasser)
+
 Bypass URL shortener websites
 
 ## Install
