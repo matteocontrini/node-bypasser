@@ -23,6 +23,8 @@ Bypasser.prototype.findService = function() {
 
 	if (serv) {
 		this.service = serv;
+    console.log('Service in findService');
+    console.log(this.service);
 		return true;
 	}
 	else {
@@ -57,17 +59,13 @@ Bypasser._findService = function(url) {
     // Assign Generic Service
     if (serv.name == 'Generic') {
       genericService = serv;
-
-      console.log("Assigned Generic Service here");
     }
 	}
 
-  console.log('found: ' + found);
 	if (found) {
 		return serv;
 	}
 
-  console.log('Returned genericService');
   // Always return a service here
 	return genericService;
 };
@@ -77,6 +75,9 @@ Bypasser._findService = function(url) {
  * @param  {Function} callback - Called when a result is ready
  */
 Bypasser.prototype.decrypt = function(callback) {
+
+  console.log('Service in decrypt');
+  console.log(this.service);
 
   if ( ! this.service) {
     callback('Unexpected error');
