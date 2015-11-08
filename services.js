@@ -149,49 +149,18 @@ services.push(s);
 var s = new Service("Shorte.st");
 s.hosts = ['sh.st'];
 s.run = function(url, callback) {
-	var referer = url;
-	request(url, function(error, response, body) {
-		if (error || response.statusCode != 200) {
-			callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
+	var options = {
+		url: url,
+		followRedirect: false
+	};
+	
+	request(options, function(error, response, body) {
+		if (error || response.statusCode != 302) {
+			callback('Unexpected response status code. Response code: ' + response.statusCode);
 			return;
 		}
 		
-		var match = body.match(/sessionId: "([a-z0-9]+)",/i);
-		if (!match) {
-			callback('The URL cannot be decrypted');
-			return;
-		}
-		
-		var token = match[1];
-		var now = Math.round(Date.now() / 1000);
-		var url = 'http://sh.st/adSession/callback?sessionId=' + token + '&browserToken=' + now + '&callback=reqwest_' + now;
-		
-		var options = {
-			uri: url,
-			headers: {
-				'Referer': referer
-			}
-		};
-				
-		setTimeout(function() {
-			request(options, function(error, response, body) {
-				if (error || response.statusCode != 200) {
-					callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
-					return;
-				}
-				
-				var match = body.match(/url":"(.*?)"/i);
-				if (match && match[1]) {
-					var res = match[1].replace(/\\\//g, '/');
-					callback(null, res);
-				}
-				else {
-					callback('The URL cannot be decrypted: ' + body);
-				}
-			});
-		}, 5000);
-		
-		
+		callback(null, response.headers.location);
 	});
 };
 services.push(s);
