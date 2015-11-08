@@ -4,7 +4,7 @@
 
 var request = require('request');
 
-var Service = require('../Service.js');
+var Service = require('../service.js');
 var common  = require('../common.js');
 
 var service = new Service("Generic");

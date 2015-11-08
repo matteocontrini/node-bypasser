@@ -1,7 +1,7 @@
 var request   = require('request');
 var _url      = require('url');
 
-var Service   = require('./Service.js');
+var Service   = require('./service.js');
 var services  = require('./services.js');
 
 /**
