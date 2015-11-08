@@ -22,33 +22,59 @@ service.run = function(url, callback) {
 			return;
 		}
 		
-		var match = body.match(/var fkzd="(.+?)";/);
-		if (!match) {
-			var match = body.match(/filekey="(.+?)";/i);
-			if (!match) {
-				callback('The URL cannot be decrypted');
-				return;
-			}
-		}
-		var token = match[1];
-		
-		var match = body.match(/file="(.+?)";/);
-		var fileId = match[1];
-		
-		var match = body.match(/domain="(.+?)";/);
-		var domain = match[1];
-		
-		var url = domain + '/api/player.api.php?file=' + fileId + '&key=' + token;
-		request(url, function(error, response, body) {
-			if (error || response.statusCode != 200) {
-				callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
-				return;
-			}
+		var step = body.match(/name="stepkey" value="([a-z0-9]+)"/);
+		if (step) {
+			step = step[1];
 			
-			var match = body.match(/url=(.+?)&/);
-			callback(null, match[1]);
-		});
+			var options = {
+				url: url,
+				form: {
+					stepkey: step
+				},
+				method: 'POST'
+			};
+			request(options, function(error, response, body) {
+				if (error || response.statusCode != 200) {
+					callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
+					return;
+				}
+				
+				parse(body, callback);
+			});
+		}
+		else {
+			parse(body, callback);
+		}		
 	});
 };
+
+function parse(body, callback) {
+	var match = body.match(/var fkzd="(.+?)";/);
+	if (!match) {
+		var match = body.match(/filekey="(.+?)";/i);
+		if (!match) {
+			callback('The URL cannot be decrypted');
+			return;
+		}
+	}
+	var token = match[1];
+	
+	var match = body.match(/file="(.+?)";/);
+	var fileId = match[1];
+	
+	var match = body.match(/domain="(.+?)";/);
+	var domain = match[1];
+	
+	var url = domain + '/api/player.api.php?file=' + fileId + '&key=' + token;
+	request(url, function(error, response, body) {
+		if (error || response.statusCode != 200) {
+			callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
+			return;
+		}
+		
+		var match = body.match(/url=(.+?)&/);
+		callback(null, match[1]);
+	});
+}
 
 module.exports = service;
