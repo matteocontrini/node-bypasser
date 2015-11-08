@@ -4,7 +4,7 @@ Bypass URL shortener websites
 ## Install
 
 ```
-npm install node-bypasser
+npm install --save node-bypasser
 ```
 
 ## Example:
@@ -26,7 +26,7 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 ## Supported websites
 * Adf.ly
 * Linkbucks.com (main domain) (5 seconds required)
-* Shorte.st (sh.st) (5 seconds required)
+* Shorte.st (sh.st)
 * AdFoc.us
 * NowVideo and NovaMov decryption (FLV video direct link will be extracted)
 
