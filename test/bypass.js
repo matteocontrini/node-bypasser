@@ -40,6 +40,15 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+
+  it('Smsh.me', function(done) {
+		var b = new Bypasser('http://smsh.me/3wqqf');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('https://github.com/matteocontrini/node-bypasser'); // Can't shrink http://github.com
+			done();
+		});
+	});
 	
 	it('Generic goo.gl', function(done) {
 		var b = new Bypasser('http://goo.gl/NWt4Es');

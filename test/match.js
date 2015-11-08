@@ -22,6 +22,11 @@ describe('Match URL to host', function() {
 		var b = new Bypasser('http://adfoc.us/x57045654');
 		expect(b.service.name).to.equal('AdFoc.us');
 	});
+
+  it('Smsh.me', function() {
+    var b = new Bypasser('http://smsh.me/3wqqf');
+    expect(b.service.name).to.equal('Smsh.me');
+  });
 	
 	it('Generic goo.gl', function() {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
