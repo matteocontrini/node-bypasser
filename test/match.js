@@ -37,6 +37,11 @@ describe('Match URL to host', function() {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
 		expect(b.service.name).to.equal('Generic');
 	});
+
+  it('Generic custom bit.ly', function() {
+    var b = new Bypasser('http://l.khoanguyen.me/1HBv4tx');
+    expect(b.service.name).to.equal('Generic');
+  });
 	
 	it('NowVideo', function() {
 		var b = new Bypasser('http://www.nowvideo.li/video/6b3032d85873d');
