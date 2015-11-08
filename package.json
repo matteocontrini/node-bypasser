@@ -17,5 +17,12 @@
   "repository": "matteocontrini/node-bypasser",
   "bugs": {
     "url": "https://github.com/matteocontrini/node-bypasser/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
