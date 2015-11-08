@@ -28,10 +28,11 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 * Linkbucks.com (main domain) (5 seconds required)
 * Shorte.st (sh.st)
 * AdFoc.us
-* NowVideo and NovaMov decryption (FLV video direct link will be extracted)
+* NowVideo and NovaMov (FLV video direct link will be extracted)
 
-## Coming soon
-```
-// TODO bit.ly
-// TODO goo.gl
-```
+## #next
+* Bit.ly
+* Goo.gl
+* Bc.vc
+* Some video streaming websites
+* Unit tests
