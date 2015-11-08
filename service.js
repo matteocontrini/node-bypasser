@@ -4,7 +4,7 @@
  */
 function Service(name) {
 	this.name = name || null;
-	this.rule = null;
+	this.hosts = null;
 	this.run = null;
 }
 
