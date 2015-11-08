@@ -27,6 +27,11 @@ describe('Match URL to host', function() {
     var b = new Bypasser('http://smsh.me/3wqqf');
     expect(b.service.name).to.equal('Smsh.me');
   });
+
+  it('P.pw', function() {
+    var b = new Bypasser('http://p.pw/bai1hN');
+    expect(b.service.name).to.equal('P.pw');
+  });
 	
 	it('Generic goo.gl', function() {
 		var b = new Bypasser('http://goo.gl/NWt4Es');

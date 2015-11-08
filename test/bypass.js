@@ -49,6 +49,15 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+
+  it('P.pw', function(done) {
+		var b = new Bypasser('http://p.pw/bai1hN');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
 	
 	it('Generic goo.gl', function(done) {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
