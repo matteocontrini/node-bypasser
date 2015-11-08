@@ -58,6 +58,8 @@ Bypasser._findService = function(url) {
 
     // Assign Generic Service
     if (serv.name == 'Generic') {
+      console.log('Asign Generic Service');
+      console.log(serv);
       genericService = serv;
     }
 	}
