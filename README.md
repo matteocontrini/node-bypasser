@@ -29,10 +29,9 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 * Shorte.st (sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com)
 * AdFoc.us
 * NowVideo and NovaMov (FLV video direct link will be extracted)
+* All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
 ## #next
-* Bit.ly
-* Goo.gl
 * Bc.vc
 * Some video streaming websites
 * Unit tests
