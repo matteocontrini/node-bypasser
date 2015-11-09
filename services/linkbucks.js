@@ -49,7 +49,6 @@ service.run = function(url, callback) {
 			if (line.trim().startsWith('var f = window[\'init\' + \'Lb\' + \'js\' + \'\'];')) {
 				found = true;
 			}
-			
 		}
 		
 		if (startLine == -1 || endLine == -1) {
@@ -107,7 +106,7 @@ service.run = function(url, callback) {
 		setTimeout(function() {
 			
 			var call = 'http://www.linkbucks.com/intermission/loadTargetUrl?t=' + token + '&aK=' + authKey + '&a_b=false';
-						
+			
 			request(call, function(error, response, body) {
 				if (error || response.statusCode != 200) {
 					callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
