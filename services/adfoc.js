@@ -8,16 +8,17 @@ var request = require('request');
 var Service = require('../service.js');
 var common  = require('../common.js');
 
-var service = new Service("AdFoc.us");
+var service = new Service('AdFoc.us');
 service.hosts = ['adfoc.us'];
 
 service.run = function(url, callback) {
 	var options = {
 		uri: url,
 		headers: {
-			'Accept': 'text/html'
+			Accept: 'text/html'
 		}
-	}
+	};
+	
 	request(options, function(error, response, body) {
 		if (error || response.statusCode != 200) {
 			callback('Errore while fetching the given URL. Response code: ' + response.statusCode);

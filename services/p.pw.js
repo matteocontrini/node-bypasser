@@ -8,7 +8,7 @@ var request = require('request');
 var Service = require('../service.js');
 var common  = require('../common.js');
 
-var service = new Service("P.pw");
+var service = new Service('P.pw');
 service.hosts = ['p.pw'];
 
 service.run = function(url, callback) {
@@ -22,9 +22,9 @@ service.run = function(url, callback) {
 			callback('Unexpected response status code. Response code: ' + response.statusCode);
 			return;
 		}
-
-    var link = body.match(/window\.location = "(.*)";/);
-
+		
+		var link = body.match(/window\.location = "(.*)";/);
+		
 		callback(null, link[1]);
 	});
 };

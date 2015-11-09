@@ -20,13 +20,13 @@ function Bypasser(url) {
  */
 Bypasser.prototype.findService = function() {
 	var serv = Bypasser._findService(this.url);
-
+	
 	if (serv) {
 		this.service = serv;
 		return true;
 	}
 	else {
-    return false;
+		return false;
 	}
 };
 
@@ -41,30 +41,31 @@ Bypasser._findService = function(url) {
 	if (parsedUrl.hostname == null) return null;
 	
 	var found = false;
-  var genericService = false;
-
-  // Loop through services until a match is found
+	var genericService = false;
+	
+	var serv;
+	// Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
-		var serv = services[i];
-
+		serv = services[i];
+		
 		// Find a match among hostnames
 		for (var j = 0; j < serv.hosts.length && !found; j++) {
 			if (parsedUrl.hostname.endsWith(serv.hosts[j])) {
 				found = true;
 			}
 		}
-
-    // Assign Generic Service
-    if (serv.name == 'Generic') {
-      genericService = serv;
-    }
+		
+		// Assign Generic Service
+		if (serv.name == 'Generic') {
+			genericService = serv;
+		}
 	}
-
+	
 	if (found) {
 		return serv;
 	}
-
-  // Always return a service here
+	
+	// Always return a service here
 	return genericService;
 };
 
@@ -73,15 +74,14 @@ Bypasser._findService = function(url) {
  * @param  {Function} callback - Called when a result is ready
  */
 Bypasser.prototype.decrypt = function(callback) {
-
-  if (! this.service) {
-    callback('Unexpected error');
-    return;
-  }
-
-  // URL not recognized as supported callback will be in Generic service
-  // TODO: Move it back here
-
+	if (!this.service) {
+		callback('Unexpected error');
+		return;
+	}
+	
+	// URL not recognized as supported callback will be in Generic service
+	// TODO: Move it back here
+	
 	this.service.run(this.url, callback);
 };
 

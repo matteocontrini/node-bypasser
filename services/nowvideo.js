@@ -10,7 +10,7 @@ var request = require('request');
 var Service = require('../service.js');
 var common  = require('../common.js');
 
-var service = new Service("NowVideo");
+var service = new Service('NowVideo');
 service.hosts = ['nowvideo.li', 'nowvideo.eu', 'nowvideo.ch', 'nowvideo.sx',
 				 'nowvideo.co', 'nowvideo.ag', 'nowvideo.ec',
 				 'novamov.com'];
@@ -51,7 +51,7 @@ service.run = function(url, callback) {
 function parse(body, callback) {
 	var match = body.match(/var fkzd="(.+?)";/);
 	if (!match) {
-		var match = body.match(/filekey="(.+?)";/i);
+		match = body.match(/filekey="(.+?)";/i);
 		if (!match) {
 			callback('The URL cannot be decrypted');
 			return;
@@ -59,10 +59,10 @@ function parse(body, callback) {
 	}
 	var token = match[1];
 	
-	var match = body.match(/file="(.+?)";/);
+	match = body.match(/file="(.+?)";/);
 	var fileId = match[1];
 	
-	var match = body.match(/domain="(.+?)";/);
+	match = body.match(/domain="(.+?)";/);
 	var domain = match[1];
 	
 	var url = domain + '/api/player.api.php?file=' + fileId + '&key=' + token;

@@ -1,5 +1,5 @@
 /*
- Smsh.me
+	Smsh.me
 	Hosts: smsh.me
  */
 
@@ -9,7 +9,7 @@ var Service = require('../service.js');
 var common  = require('../common.js');
 var cheerio = require('cheerio');
 
-var service = new Service("Smsh.me");
+var service = new Service('Smsh.me');
 service.hosts = ['smsh.me'];
 
 service.run = function(url, callback) {
@@ -23,10 +23,10 @@ service.run = function(url, callback) {
 			callback('Unexpected response status code. Response code: ' + response.statusCode);
 			return;
 		}
-    $ = cheerio.load(body);
-
-    var link = $('a#redirectorTitle.websnapr').attr('href');
-
+		$ = cheerio.load(body);
+		
+		var link = $('a#redirectorTitle.websnapr').attr('href');
+		
 		callback(null, link);
 	});
 };
