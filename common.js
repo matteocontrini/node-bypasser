@@ -1,5 +1,6 @@
 var findLastMatch = function(regex, text) {
 	var lastMatch = null;
+	var m;
 	while ((m = regex.exec(text)) != null) {
 		lastMatch = m;
 	}

@@ -33,6 +33,7 @@ service.run = function(url, callback) {
 				},
 				method: 'POST'
 			};
+			
 			request(options, function(error, response, body) {
 				if (error || response.statusCode != 200) {
 					callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
@@ -44,7 +45,7 @@ service.run = function(url, callback) {
 		}
 		else {
 			parse(body, callback);
-		}		
+		}
 	});
 };
 

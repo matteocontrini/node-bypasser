@@ -17,13 +17,13 @@ service.run = function(url, callback) {
 	// Enable cookies
 	request = request.defaults({ jar: true });
 	
-	request(url, function (error, response, body) {
+	request(url, function(error, response, body) {
 		if (error || response.statusCode != 200) {
 			callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
 			return;
 		}
 		
-		$ = cheerio.load(body);
+		var $ = cheerio.load(body);
 		
 		var seconds = 6;
 		var cmpID = $('#iframeID').attr('data-cmp');
@@ -43,7 +43,7 @@ service.run = function(url, callback) {
 		function updateCountdown() {
 			seconds--;
 			if (seconds >= 0) {
-				request(options, function (error, response, body) {
+				request(options, function(error, response, body) {
 					if (error || response.statusCode != 200) {
 						callback('Error while fetching the given URL. Response code: ' + response.statusCode);
 						return;
@@ -53,7 +53,7 @@ service.run = function(url, callback) {
 					if (body.length > 1) {
 						
 						$ = cheerio.load(body);
-						link = $('a').attr('href');
+						var link = $('a').attr('href');
 						
 						callback(null, link);
 					}

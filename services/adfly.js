@@ -26,21 +26,21 @@ service.run = function(url, callback) {
 				ysmm = ysmm.substring(0, i);
 			}
 			
-			// Decrypt `ysmm`
+			// Decrypt 'ysmm'
 			var f = '';
 			var z = f;
 			
-			for (var l = 0; l < ysmm.length; l++) { 
-				if (l % 2 === 0) { 
-					f += ysmm.charAt(l); 
+			for (var l = 0; l < ysmm.length; l++) {
+				if (l % 2 === 0) {
+					f += ysmm.charAt(l);
 				}
-				else { 
-					z = ysmm.charAt(l) + z; 
-				} 
+				else {
+					z = ysmm.charAt(l) + z;
+				}
 			}
 			
-			ysmm = f + z; 
-			ysmm = new Buffer(ysmm, 'base64').toString('ascii'); 
+			ysmm = f + z;
+			ysmm = new Buffer(ysmm, 'base64').toString('ascii');
 			ysmm = ysmm.substring(2);
 			
 			callback(null, ysmm);

@@ -23,7 +23,7 @@ service.run = function(url, callback) {
 			callback('Unexpected response status code. Response code: ' + response.statusCode);
 			return;
 		}
-		$ = cheerio.load(body);
+		var $ = cheerio.load(body);
 		
 		var link = $('a#redirectorTitle.websnapr').attr('href');
 		
