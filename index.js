@@ -43,11 +43,11 @@ Bypasser._findService = function(url) {
 	if (parsedUrl.hostname == null) return null;
 	
 	var found = false;
+  var genericService = null;
 
-	// Loop through services until a match is found
+  // Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
 		var serv = services[i];
-		var genericService = null;
 
 		// Find a match among hostnames
 		for (var j = 0; j < serv.hosts.length && !found; j++) {
