@@ -27,7 +27,8 @@ service.run = function(url, callback) {
 			}
 			
 			// Decrypt `ysmm`
-			var z, f = '';
+			var f = '';
+			var z = f;
 			
 			for (var l = 0; l < ysmm.length; l++) { 
 				if (l % 2 === 0) { 
