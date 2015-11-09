@@ -67,6 +67,15 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+
+	it('Generic custom bit.ly', function(done) {
+		var b = new Bypasser('http://l.khoanguyen.me/1HBv4tx');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com/');
+			done();
+		});
+	});
 	
 	it('NowVideo', function(done) {
 		var b = new Bypasser('http://www.nowvideo.li/video/6b3032d85873d');
