@@ -67,7 +67,16 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
+  it('Clk.im', function(done) {
+    var b = new Bypasser('http://clk.im/A358O');
+    b.decrypt(function(err, result) {
+      expect(err).to.be.null;
+      expect(result).to.equal('http://github.com');
+      done();
+    });
+  });
+
 	it('Generic goo.gl', function(done) {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
 		b.decrypt(function(err, result) {
