@@ -31,6 +31,12 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 * Linkbucks.com (main domain) (5 seconds required)
 * Shorte.st (sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com)
 * AdFoc.us
+* Adf.ly
+* Smsh.me
+* P.pw
+* LinkShrink.net
+* Clk.im
+* Link5s.com
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
