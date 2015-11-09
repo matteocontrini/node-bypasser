@@ -21,9 +21,13 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "jscs": "^2.5.1",
+    "jshint": "^2.8.0",
     "mocha": "^2.3.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "jshint .",
+    "cs": "jscs ."
   }
 }
