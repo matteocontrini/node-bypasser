@@ -58,6 +58,15 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+
+  it('LinkShrink.net', function(done) {
+		var b = new Bypasser('http://linkshrink.net/7znHwW');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
 	
 	it('Generic goo.gl', function(done) {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
