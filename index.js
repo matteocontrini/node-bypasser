@@ -23,8 +23,6 @@ Bypasser.prototype.findService = function() {
 
 	if (serv) {
 		this.service = serv;
-    console.log('Service in findService');
-    console.log(this.service);
 		return true;
 	}
 	else {
@@ -43,7 +41,7 @@ Bypasser._findService = function(url) {
 	if (parsedUrl.hostname == null) return null;
 	
 	var found = false;
-  var genericService = null;
+  var genericService = false;
 
   // Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
@@ -58,8 +56,6 @@ Bypasser._findService = function(url) {
 
     // Assign Generic Service
     if (serv.name == 'Generic') {
-      console.log('Asign Generic Service');
-      console.log(serv);
       genericService = serv;
     }
 	}
@@ -78,11 +74,9 @@ Bypasser._findService = function(url) {
  */
 Bypasser.prototype.decrypt = function(callback) {
 
-  console.log('Service in decrypt');
-  console.log(this.service);
-
-  if ( ! this.service) {
+  if (! this.service) {
     callback('Unexpected error');
+    return;
   }
 
   // URL not recognized as supported callback will be in Generic service
