@@ -15,16 +15,14 @@ describe('Decrypt', function() {
 		});
 	});
 	
-	//TODO: Fixed linkbucks
-	
-	//it('Linkbucks', function(done) {
-	//	var b = new Bypasser('http://www.linkbucks.com/Kutv');
-	//	b.decrypt(function(err, result) {
-	//		expect(err).to.be.null;
-	//		expect(result).to.equal('http://github.com');
-	//		done();
-	//	});
-	//});
+	it('Linkbucks', function(done) {
+		var b = new Bypasser('http://www.linkbucks.com/Kutv');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
 	
 	it('Shorte.st', function(done) {
 		var b = new Bypasser('http://sh.st/gS8XD');

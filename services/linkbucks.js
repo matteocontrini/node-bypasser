@@ -58,47 +58,68 @@ service.run = function(url, callback) {
 		}
 		
 		var block = lines.slice(startLine, endLine);
-		found = 0;
-		var token;
-		var authKey;
+		var token = null;
+		var authKey = null;
+		var adUrl = null;
+		var step = 1;
 		
-		for (i = 0; i < block.length && found < 3; i++) {
-			line = block[i];
+		for (i = 0; i < block.length && step <= 2; i++) {
+			line = block[i].trim();
 			
 			// Find token
-			if (line.trim().startsWith('Token')) {
+			if (token == null && line.startsWith('Token')) {
 				token = line.match(/Token: '([a-z0-9]+)',/)[1];
-				found = 1;
+				
+				continue;
+			}
+			
+			// Find the ad url
+			if (adUrl == null && line.startsWith('AdUrl')) {
+				adUrl = line.match(/AdUrl: '(.+?)',/)[1];
+				
 				continue;
 			}
 			
 			// Find auth key
-			if (found == 1 && line.trim().startsWith('params')) {
+			if (authKey == null && line.startsWith('params')) {
 				authKey = +line.match(/ = (\d+)/)[1];
-				found = 2;
+				
+				// Next step is getting the salt
+				step = 2;
 				continue;
 			}
 			
 			// Find auth key salt
-			if (found == 2 && line.trim().startsWith('params')) {
+			if (step == 2 && line.startsWith('params')) {
 				var salt = +line.match(/ \+ (\d+);/)[1];
-				authKey += salt;
-				found = 3;
+				authKey = authKey + salt;
+				
+				// This makes the loop stop
+				step = 3;
 				continue;
 			}
 		}
 		
-		var url = 'http://www.linkbucks.com/intermission/loadTargetUrl?t=' + token + '&aK=' + authKey;
+		// Request the ad URL and pass the server-side check
+		request(adUrl);
 		
+		// Wait 5 seconds and make the call
 		setTimeout(function() {
-			request(url, function(error, response, body) {
+			
+			var call = 'http://www.linkbucks.com/intermission/loadTargetUrl?t=' + token + '&aK=' + authKey + '&a_b=false';
+						
+			request(call, function(error, response, body) {
 				if (error || response.statusCode != 200) {
 					callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
 					return;
 				}
 				
+				// Parse the JSON response
 				response = JSON.parse(body);
-				if (response['Success'] === true && !response['AdBlockSpotted'] && response['Url']) {
+				if (response['Success'] === true
+					&& !response['AdBlockSpotted']
+					&& response['Url']
+				) {
 					callback(null, response['Url']);
 				}
 				else {

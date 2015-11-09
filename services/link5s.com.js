@@ -34,7 +34,8 @@ service.run = function(url, callback) {
 		
 		var options = {
 			url: postUrl,
-			form: { page: page, advID: cmpID, u: user }
+			form: { page: page, advID: cmpID, u: user },
+			method: 'POST'
 		};
 		
 		setTimeout(updateCountdown, 1000);
@@ -42,7 +43,7 @@ service.run = function(url, callback) {
 		function updateCountdown() {
 			seconds--;
 			if (seconds >= 0) {
-				request.post(options, function optionalCallback(error, response, body) {
+				request(options, function (error, response, body) {
 					if (error || response.statusCode != 200) {
 						callback('Error while fetching the given URL. Response code: ' + response.statusCode);
 						return;
