@@ -32,6 +32,11 @@ describe('Match URL to host', function() {
     var b = new Bypasser('http://p.pw/bai1hN');
     expect(b.service.name).to.equal('P.pw');
   });
+
+  it('LinkShrink.net', function() {
+    var b = new Bypasser('http://linkshrink.net/7znHwW');
+    expect(b.service.name).to.equal('LinkShrink.net');
+  });
 	
 	it('Generic goo.gl', function() {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
