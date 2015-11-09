@@ -115,9 +115,9 @@ service.run = function(url, callback) {
 				
 				// Parse the JSON response
 				response = JSON.parse(body);
-				if (response['Success'] === true
-					&& !response['AdBlockSpotted']
-					&& response['Url']
+				if (response['Success'] === true &&
+					!response['AdBlockSpotted'] &&
+					response['Url']
 				) {
 					callback(null, response['Url']);
 				}
