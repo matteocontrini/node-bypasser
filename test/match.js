@@ -69,6 +69,11 @@ describe('Match URL to host', function() {
 		expect(b.service.name).to.equal('NowVideo');
 	});
 
+	it('Bc.vc', function() {
+		var b = new Bypasser('http://bc.vc/Eu0Oiv');
+		expect(b.service.name).to.equal('Bc.vc');
+	});
+
 	it('Return null service when receive invalid URL', function() {
 		var b = new Bypasser('github.com');
 		expect(b.service).to.be.null;

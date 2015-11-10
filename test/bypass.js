@@ -131,4 +131,13 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+
+	it('Bc.vc', function(done) {
+		var b = new Bypasser('http://bc.vc/Eu0Oiv');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
 });
