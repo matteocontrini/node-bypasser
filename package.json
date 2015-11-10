@@ -1,6 +1,6 @@
 {
   "name": "node-bypasser",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A module for expanding shortened URLs and bypassing ads",
   "main": "index.js",
   "keywords": [

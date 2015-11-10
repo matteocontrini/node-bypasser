@@ -43,4 +43,3 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 ## #next
 * Bc.vc
 * Some video streaming websites
-* Unit tests
