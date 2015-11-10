@@ -73,7 +73,7 @@ Bypasser._findService = function(url) {
  */
 Bypasser.prototype.decrypt = function(callback) {
 	if (!this.service) {
-		callback('Unexpected error');
+		callback('This is not a valid url');
 		return;
 	}
 	
