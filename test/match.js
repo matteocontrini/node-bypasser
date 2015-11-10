@@ -71,6 +71,6 @@ describe('Match URL to host', function() {
 
 	it('Return null service when receive invalid URL', function() {
 		var b = new Bypasser('github.com');
-		expect(b.service).to.equal(null);
+		expect(b.service).to.be.null;
 	});
 });
