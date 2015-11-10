@@ -39,9 +39,9 @@ Bypasser._findService = function(url) {
 	if (parsedUrl.hostname == null) return null;
 	
 	var found = false;
-	var genericService = false;
+	var genericService = null;
+	var serv = null;
 	
-	var serv;
 	// Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
 		serv = services[i];
@@ -59,11 +59,12 @@ Bypasser._findService = function(url) {
 		}
 	}
 	
+	// If a service is found, return it
 	if (found) {
 		return serv;
 	}
 	
-	// Always return a service here
+	// Otherwise return the generic one
 	return genericService;
 };
 
@@ -77,10 +78,29 @@ Bypasser.prototype.decrypt = function(callback) {
 		return;
 	}
 	
-	// URL not recognized as supported callback will be in Generic service
-	// TODO: Move it back here
+	this.callback = callback;
 	
-	this.service.run(this.url, callback);
+	this.service.run(this.url, handleResponse.bind(this));
 };
+
+function handleResponse(err, res) {
+	if (err) {
+		return this.callback(err);
+	}
+	else {
+		if (this.service.name == 'Generic') {
+			// Search a new service
+			this.url = res;
+			this.findService();
+			
+			if (this.service.name != 'Generic') {
+				this.service.run(this.url, handleResponse.bind(this));
+				return;
+			}
+		}
+		
+		this.callback(null, res);
+	}
+}
 
 module.exports = Bypasser;

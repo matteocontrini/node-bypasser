@@ -24,6 +24,24 @@ describe('Decrypt', function() {
 		});
 	});
 	
+	it('Linkbucks (alternate)', function(done) {
+		var b = new Bypasser('http://www.eafyfsuh.net/LLMl');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
+	
+	it('Generic --> Linkbucks', function(done) {
+		var b = new Bypasser('http://www.yyv.co/LLMl');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
+	
 	it('Shorte.st', function(done) {
 		var b = new Bypasser('http://sh.st/gS8XD');
 		b.decrypt(function(err, result) {

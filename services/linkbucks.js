@@ -9,7 +9,7 @@ var Service = require('../service.js');
 var common  = require('../common.js');
 
 var service = new Service('Linkbucks');
-service.hosts = ['linkbucks.com'];
+service.hosts = ['linkbucks.com', 'eafyfsuh.net'];
 
 service.run = function(url, callback) {
 	request(url, function(error, response, body) {

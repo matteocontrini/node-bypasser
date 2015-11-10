@@ -14,6 +14,16 @@ describe('Match URL to host', function() {
 		expect(b.service.name).to.equal('Linkbucks');
 	});
 	
+	it('Linkbucks (alternate)', function() {
+		var b = new Bypasser('http://www.eafyfsuh.net/LLMl');
+		expect(b.service.name).to.equal('Linkbucks');
+	});
+	
+	it('Generic --> Linkbucks', function() {
+		var b = new Bypasser('http://www.yyv.co/LLMl');
+		expect(b.service.name).to.equal('Generic');
+	});
+	
 	it('Shorte.st', function() {
 		var b = new Bypasser('http://sh.st/gS8XD');
 		expect(b.service.name).to.equal('Shorte.st');
