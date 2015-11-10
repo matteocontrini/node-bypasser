@@ -20,7 +20,7 @@ service.run = function(url, callback) {
 	
 	request(options, function(error, response, body) {
 		if (error || response.statusCode != 200) {
-			callback('Errore while fetching the given URL. Response code: ' + response.statusCode);
+			callback('Error while fetching the given URL. Response code: ' + response.statusCode);
 			return;
 		}
 		
