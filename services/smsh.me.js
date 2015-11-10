@@ -6,7 +6,6 @@
 var request = require('request');
 
 var Service = require('../service.js');
-var common  = require('../common.js');
 var cheerio = require('cheerio');
 
 var service = new Service('Smsh.me');

@@ -6,7 +6,6 @@
 var request = require('request');
 
 var Service = require('../service.js');
-var common  = require('../common.js');
 
 var service = new Service('Shorte.st');
 service.hosts = ['sh.st', 'u2ks.com', 'jnw0.com', 'digg.to', 'dh10thbvu.com'];

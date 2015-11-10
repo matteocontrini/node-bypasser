@@ -78,4 +78,9 @@ describe('Match URL to host', function() {
 		var b = new Bypasser('http://www.novamov.com/video/t1j3cls50rumq');
 		expect(b.service.name).to.equal('NowVideo');
 	});
+
+	it('Return null service when receive invalid URL', function() {
+		var b = new Bypasser('github.com');
+		expect(b.service).to.be.null;
+	});
 });

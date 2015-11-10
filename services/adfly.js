@@ -6,7 +6,6 @@
 var request = require('request');
 
 var Service = require('../service.js');
-var common  = require('../common.js');
 
 var service = new Service('Adf.ly');
 service.hosts = ['adf.ly'];

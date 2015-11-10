@@ -1,5 +1,5 @@
 var _url      = require('url');
-
+var common    = require('./common.js');
 var services  = require('./services.js');
 
 /**
@@ -74,7 +74,7 @@ Bypasser._findService = function(url) {
  */
 Bypasser.prototype.decrypt = function(callback) {
 	if (!this.service) {
-		callback('Unexpected error');
+		callback('This is not a valid url');
 		return;
 	}
 	
