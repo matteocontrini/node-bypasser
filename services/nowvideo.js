@@ -8,7 +8,6 @@
 var request = require('request');
 
 var Service = require('../service.js');
-var common  = require('../common.js');
 
 var service = new Service('NowVideo');
 service.hosts = ['nowvideo.li', 'nowvideo.eu', 'nowvideo.ch', 'nowvideo.sx',

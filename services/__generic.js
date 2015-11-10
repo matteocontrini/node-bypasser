@@ -5,7 +5,6 @@
 var request = require('request');
 
 var Service = require('../service.js');
-var common  = require('../common.js');
 
 var service = new Service('Generic');
 service.hosts = [];
