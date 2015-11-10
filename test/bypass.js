@@ -123,11 +123,11 @@ describe('Decrypt', function() {
 		});
 	});
 
-  it('Throw error when receive invalid URL', function(done) {
-    var b = new Bypasser('github.com');
-    b.decrypt(function(err, result) {
-      expect(err).to.equal('This is not a valid url');
-      done();
+  	it('Throw error when receive invalid URL', function(done) {
+    	var b = new Bypasser('github.com');
+    	b.decrypt(function(err, result) {
+      	expect(err).to.equal('This is not a valid url');
+      	done();
     });
   });
 });
