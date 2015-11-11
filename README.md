@@ -27,8 +27,9 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 ```
 
 ## Testing
-- Run `npm test
-- 
+
+Run `npm test
+ 
 ### Travis.CI build is failing? 
 
 We know about that. But in our test, we are unshorten real link and Travis.CI was banned by some websites.
