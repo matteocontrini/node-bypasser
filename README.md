@@ -28,7 +28,9 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 
 ## Testing
 
-Run `npm test
+```js
+npm test
+```
  
 ### Travis.CI build is failing? 
 
