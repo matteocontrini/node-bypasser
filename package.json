@@ -27,5 +27,6 @@
   "scripts": {
     "test": "mocha",
     "lint": "eslint ."
-  }
+  },
+  "tonicExampleFilename": "tonic-example.js"
 }
