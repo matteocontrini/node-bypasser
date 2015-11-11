@@ -6,7 +6,7 @@ Bypass URL shortener websites
 
 ## Install
 
-```
+```bash
 npm install --save node-bypasser
 ```
 
@@ -28,7 +28,7 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 
 ## Testing
 
-```js
+```bash
 npm run test
 ```
  
@@ -48,6 +48,7 @@ We know about that. But in our test, we are unshorten real link and Travis.CI wa
 * Clk.im
 * Link5s.com
 * Bc.vc
+* Oni.vn
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
