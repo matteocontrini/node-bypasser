@@ -26,9 +26,16 @@ The output will be
 Decrypted: https://github.com/matteocontrini/node-bypasser/
 ```
 
+## Testing
+- Run `npm test
+- 
+### Travis.CI build is failing? 
+
+We know about that. But in our test, we are unshorten real link and Travis.CI was banned by some websites.
+
 ## Supported websites
 * Adf.ly
-* Linkbucks.com (main domain) (5 seconds required)
+* Linkbucks.com (all alternative domains)
 * Shorte.st (sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com)
 * AdFoc.us
 * Adf.ly
@@ -37,9 +44,10 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 * LinkShrink.net
 * Clk.im
 * Link5s.com
+* Bc.vc
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
 ## #next
-* Bc.vc
+* [Request a website here](https://github.com/matteocontrini/node-bypasser/issues)
 * Some video streaming websites
