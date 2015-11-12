@@ -54,7 +54,7 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
-## [Request a website](https://github.com/matteocontrini/node-bypasser/issues)
+## [Request a new service](https://github.com/matteocontrini/node-bypasser/issues)
 
 ## #next
 * Some video streaming websites
