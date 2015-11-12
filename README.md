@@ -12,6 +12,8 @@ npm install --save node-bypasser
 
 ## Example:
 
+[Try on Tonic](https://tonicdev.com/npm/node-bypasser)
+
 ```javascript
 var Bypasser = require('node-bypasser');
 
@@ -32,9 +34,9 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 npm run test
 ```
  
-### Travis.CI build is failing? 
+### Travis CI build is failing? 
 
-We know about that. But in our test, we are unshorten real link and Travis.CI was banned by some websites.
+Unit tests may occasionally fail when there are network connectivity issues or when services' servers give bad temporary responses.
 
 ## Supported websites
 * Adf.ly
@@ -52,6 +54,7 @@ We know about that. But in our test, we are unshorten real link and Travis.CI wa
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
+## [Request a website](https://github.com/matteocontrini/node-bypasser/issues)
+
 ## #next
-* [Request a website here](https://github.com/matteocontrini/node-bypasser/issues)
 * Some video streaming websites
