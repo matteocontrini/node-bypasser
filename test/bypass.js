@@ -159,14 +159,4 @@ describe('Decrypt', function() {
 		});
 	});
 
-	it('Oni.vn', function(done) {
-		var b = new Bypasser('http://www.oni.vn/TWjx7');
-		b.decrypt(function(err, result) {
-			expect(err).to.be.null;
-			expect(result).to.equal('http://github.com');
-			done();
-		});
-	});
-
-
 });

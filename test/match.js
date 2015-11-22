@@ -88,10 +88,5 @@ describe('Match URL to host', function() {
 		var b = new Bypasser('http://bc.vc/Eu0Oiv');
 		expect(b.service.name).to.equal('Bc.vc');
 	});
-
-	it('Oni.vn', function() {
-		var b = new Bypasser('http://www.oni.vn/TWjx7');
-		expect(b.service.name).to.equal('Oni.vn');
-	});
 });
 
