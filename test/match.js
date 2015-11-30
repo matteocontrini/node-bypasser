@@ -88,5 +88,9 @@ describe('Match URL to host', function() {
 		var b = new Bypasser('http://bc.vc/Eu0Oiv');
 		expect(b.service.name).to.equal('Bc.vc');
 	});
-});
 
+	it('Link4ad.net', function() {
+		var b = new Bypasser('http://link4ad.net/cAytP2k6');
+		expect(b.service.name).to.equal('Link4ad.net');
+	});
+});

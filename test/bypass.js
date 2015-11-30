@@ -5,7 +5,7 @@ var Bypasser = require('../index.js');
 
 describe('Decrypt', function() {
 	this.timeout(0);
-	
+
 	it('Adf.ly', function(done) {
 		var b = new Bypasser('http://adf.ly/pVVXg');
 		b.decrypt(function(err, result) {
@@ -14,7 +14,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Linkbucks', function(done) {
 		var b = new Bypasser('http://www.linkbucks.com/Kutv');
 		b.decrypt(function(err, result) {
@@ -23,7 +23,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Linkbucks (alternate)', function(done) {
 		var b = new Bypasser('http://www.eafyfsuh.net/LLMl');
 		b.decrypt(function(err, result) {
@@ -32,7 +32,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Generic --> Linkbucks', function(done) {
 		var b = new Bypasser('http://www.yyv.co/LLMl');
 		b.decrypt(function(err, result) {
@@ -41,7 +41,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Shorte.st', function(done) {
 		var b = new Bypasser('http://sh.st/gS8XD');
 		b.decrypt(function(err, result) {
@@ -50,7 +50,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('AdFoc.us', function(done) {
 		var b = new Bypasser('http://adfoc.us/x57045654');
 		b.decrypt(function(err, result) {
@@ -59,7 +59,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Smsh.me', function(done) {
 		var b = new Bypasser('http://smsh.me/3wqqf');
 		b.decrypt(function(err, result) {
@@ -68,7 +68,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('P.pw', function(done) {
 		var b = new Bypasser('http://p.pw/bai1hN');
 		b.decrypt(function(err, result) {
@@ -77,7 +77,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('LinkShrink.net', function(done) {
 		var b = new Bypasser('http://linkshrink.net/7znHwW');
 		b.decrypt(function(err, result) {
@@ -86,7 +86,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Clk.im', function(done) {
 		var b = new Bypasser('http://clk.im/A358O');
 		b.decrypt(function(err, result) {
@@ -95,7 +95,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Link5s.com', function(done) {
 		var b = new Bypasser('http://link5s.com/Gmq');
 		b.decrypt(function(err, result) {
@@ -104,7 +104,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Generic goo.gl', function(done) {
 		var b = new Bypasser('http://goo.gl/NWt4Es');
 		b.decrypt(function(err, result) {
@@ -113,7 +113,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('Generic custom bit.ly', function(done) {
 		var b = new Bypasser('http://l.khoanguyen.me/1HBv4tx');
 		b.decrypt(function(err, result) {
@@ -122,7 +122,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('NowVideo', function(done) {
 		var b = new Bypasser('http://www.nowvideo.li/video/9f86b7f7f0a31');
 		b.decrypt(function(err, result) {
@@ -131,7 +131,7 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-	
+
 	it('NovaMov', function(done) {
 		var b = new Bypasser('http://www.novamov.com/video/4bb1ba486069a');
 		b.decrypt(function(err, result) {
@@ -159,4 +159,12 @@ describe('Decrypt', function() {
 		});
 	});
 
+	it('Link4ad.net', function(done) {
+		var b = new Bypasser('http://link4ad.net/cAytP2k6');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result).to.equal('http://github.com');
+			done();
+		});
+	});
 });
