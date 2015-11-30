@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.19.0",
+    "lodash": "^3.10.1",
     "request": "~2.65.0"
   },
   "repository": "matteocontrini/node-bypasser",
