@@ -1,5 +1,7 @@
+// Polyfill for node 0.x
+require('./common.js');
+
 var _url      = require('url');
-var common    = require('./common.js');
 var services  = require('./services.js');
 
 /**
@@ -18,7 +20,7 @@ function Bypasser(url) {
  */
 Bypasser.prototype.findService = function() {
 	var serv = Bypasser._findService(this.url);
-	
+
 	if (serv) {
 		this.service = serv;
 		return true;
@@ -37,33 +39,33 @@ Bypasser.prototype.findService = function() {
 Bypasser._findService = function(url) {
 	var parsedUrl = _url.parse(url);
 	if (parsedUrl.hostname == null) return null;
-	
+
 	var found = false;
 	var genericService = null;
 	var serv = null;
-	
+
 	// Loop through services until a match is found
 	for (var i = 0; i < services.length && !found; i++) {
 		serv = services[i];
-		
+
 		// Find a match among hostnames
 		for (var j = 0; j < serv.hosts.length && !found; j++) {
 			if (parsedUrl.hostname.endsWith(serv.hosts[j])) {
 				found = true;
 			}
 		}
-		
+
 		// Assign Generic Service
 		if (serv.name == 'Generic') {
 			genericService = serv;
 		}
 	}
-	
+
 	// If a service is found, return it
 	if (found) {
 		return serv;
 	}
-	
+
 	// Otherwise return the generic one
 	return genericService;
 };
@@ -77,9 +79,9 @@ Bypasser.prototype.decrypt = function(callback) {
 		callback('This is not a valid url');
 		return;
 	}
-	
+
 	this.callback = callback;
-	
+
 	this.service.run(this.url, handleResponse.bind(this));
 };
 
@@ -92,13 +94,13 @@ function handleResponse(err, res) {
 			// Search a new service
 			this.url = res;
 			this.findService();
-			
+
 			if (this.service.name != 'Generic') {
 				this.service.run(this.url, handleResponse.bind(this));
 				return;
 			}
 		}
-		
+
 		this.callback(null, res);
 	}
 }
