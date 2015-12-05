@@ -50,6 +50,8 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * Clk.im
 * Link5s.com
 * Bc.vc
+* Link4ad.net
+* Oxyl.me
 * ~~Oni.vn~~
 * NowVideo and NovaMov (FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
