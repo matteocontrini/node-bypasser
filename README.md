@@ -43,7 +43,6 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * Linkbucks.com (all alternative domains)
 * Shorte.st (sh.st, u2ks.com, jnw0.com, digg.to, dh10thbvu.com)
 * AdFoc.us
-* Adf.ly
 * Smsh.me
 * P.pw
 * LinkShrink.net
