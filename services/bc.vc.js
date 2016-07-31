@@ -1,6 +1,6 @@
 /*
- Bc.vc
- Hosts: bc.vc
+	Bc.vc
+	Hosts: bc.vc
  */
 
 var request = require('request');
@@ -25,9 +25,14 @@ service.run = function(url, callback) {
 			return;
 		}
 
-
 		// Fix JSON response (http://qr.ae/d4PoJ)
-		var payload = match[0].replace(/'/g, '"').replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2": ');
+		var payload = match[0];
+		var toReplace = ['tZ', 'cW', 'cH', 'sW', 'sH'];
+		toReplace.forEach(function(k) {
+			payload = payload.replace(k, '""');
+		});
+		
+		payload = payload.replace(/'/g, '"').replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2": ');
 
 		var params = JSON.parse(payload);
 
