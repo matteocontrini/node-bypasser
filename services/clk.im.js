@@ -22,9 +22,14 @@ service.run = function(url, callback) {
 			return;
 		}
 		
-		var link = body.match(/\$\("\.countdown"\)\.attr\("href","([^"]+)"\)/);
+		var match = body.match(/\$\("\.countdown"\)\.attr\("href","([^"]+)"\)/);
 		
-		callback(null, link[1]);
+		if (!match) {
+			callback('The URL cannot be decrypted');
+			return;
+		}
+		
+		callback(null, match[1]);
 	});
 };
 

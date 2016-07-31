@@ -88,7 +88,7 @@ describe('Decrypt', function() {
 	});
 
 	it('Clk.im', function(done) {
-		var b = new Bypasser('http://clk.im/A358O');
+		var b = new Bypasser('http://clk.im/fovq');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');
