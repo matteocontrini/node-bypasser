@@ -150,8 +150,8 @@ describe('Decrypt', function() {
 		});
 	});
 
-	it('Link4ad.net', function(done) {
-		var b = new Bypasser('http://link4ad.net/cAytP2k6');
+	it.skip('Link4ad.net', function(done) {
+		var b = new Bypasser('http://link4ad.com/abGaBwGn');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');
