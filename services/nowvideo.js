@@ -6,75 +6,36 @@
  */
 
 var request = require('request');
+var _url    = require('url');
 
 var Service = require('../service.js');
 
 var service = new Service('NowVideo');
 service.hosts = ['nowvideo.li', 'nowvideo.eu', 'nowvideo.ch', 'nowvideo.sx',
 				 'nowvideo.co', 'nowvideo.ag', 'nowvideo.ec',
-				 'novamov.com'];
+				 'auroravid.to'];
 
 service.run = function(url, callback) {
+	// Switch to mobile page
+	// http://www.auroravid.to/video/94f6df18e053e
+	// http://www.auroravid.to/mobile/video.php?id=94f6df18e053e
+	url = url.replace('video/', 'mobile/video.php?id=');
+		
 	request(url, function(error, response, body) {
 		if (error || response.statusCode != 200) {
 			callback('Error while fetching the given URL. Response code: ' + response.statusCode);
 			return;
 		}
 		
-		var step = body.match(/name="stepkey" value="([a-z0-9]+)"/);
-		if (step) {
-			step = step[1];
-			
-			var options = {
-				url: url,
-				form: {
-					stepkey: step
-				},
-				method: 'POST'
-			};
-			
-			request(options, function(error, response, body) {
-				if (error || response.statusCode != 200) {
-					callback('Error while fetching the given URL. Response code: ' + response.statusCode);
-					return;
-				}
-				
-				parse(body, callback);
-			});
+		var match = body.match(/<source src="(.+?)" type/);
+		
+		if (match) {
+			callback(null, match[1]);
 		}
 		else {
-			parse(body, callback);
+			callback('The URL cannot be decrypted');
 		}
 	});
 };
-
-function parse(body, callback) {
-	var match = body.match(/var fkzd="(.+?)";/);
-	if (!match) {
-		match = body.match(/filekey="(.+?)";/i);
-		if (!match) {
-			callback('The URL cannot be decrypted');
-			return;
-		}
-	}
-	var token = match[1];
-	
-	match = body.match(/file="(.+?)";/);
-	var fileId = match[1];
-	
-	match = body.match(/domain="(.+?)";/);
-	var domain = match[1];
-	
-	var url = domain + '/api/player.api.php?file=' + fileId + '&key=' + token;
-	request(url, function(error, response, body) {
-		if (error || response.statusCode != 200) {
-			callback('The URL cannot be decrypted. Response code: ' + response.statusCode);
-			return;
-		}
-		
-		var match = body.match(/url=(.+?)&/);
-		callback(null, match[1]);
-	});
-}
 
 module.exports = service;

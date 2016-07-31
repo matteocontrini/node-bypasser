@@ -51,7 +51,7 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * Bc.vc
 * Link4ad.net
 * Oxyl.me
-* NowVideo and NovaMov (FLV video direct link will be extracted)
+* NowVideo and AuroraVid (MP4/FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
 ## [Request a new service](https://github.com/matteocontrini/node-bypasser/issues)

@@ -127,13 +127,13 @@ describe('Decrypt', function() {
 		var b = new Bypasser('http://www.nowvideo.li/video/9f86b7f7f0a31');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
-			expect(result.slice(-4)).to.equal('.flv');
+			expect(result.slice(-4)).to.equal('.mp4');
 			done();
 		});
 	});
 
-	it('NovaMov', function(done) {
-		var b = new Bypasser('http://www.novamov.com/video/4bb1ba486069a');
+	it('AuroraVid', function(done) {
+		var b = new Bypasser('http://www.auroravid.to/video/94f6df18e053e');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result.slice(-4)).to.equal('.flv');
