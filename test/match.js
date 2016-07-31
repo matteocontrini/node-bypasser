@@ -15,7 +15,7 @@ describe('Match URL to host', function() {
 	});
 
 	it('Linkbucks (alternate)', function() {
-		var b = new Bypasser('http://www.eafyfsuh.net/LLMl');
+		var b = new Bypasser('http://www.zatnawqy.net/LLMl');
 		expect(b.service.name).to.equal('Linkbucks');
 	});
 
@@ -32,11 +32,6 @@ describe('Match URL to host', function() {
 	it('AdFoc.us', function() {
 		var b = new Bypasser('http://adfoc.us/x57045654');
 		expect(b.service.name).to.equal('AdFoc.us');
-	});
-
-	it('Smsh.me', function() {
-		var b = new Bypasser('http://smsh.me/3wqqf');
-		expect(b.service.name).to.equal('Smsh.me');
 	});
 
 	it('P.pw', function() {
@@ -74,8 +69,8 @@ describe('Match URL to host', function() {
 		expect(b.service.name).to.equal('NowVideo');
 	});
 
-	it('NovaMov', function() {
-		var b = new Bypasser('http://www.novamov.com/video/t1j3cls50rumq');
+	it('AuroraVid', function() {
+		var b = new Bypasser('http://www.auroravid.to/video/t1j3cls50rumq');
 		expect(b.service.name).to.equal('NowVideo');
 	});
 

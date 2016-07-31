@@ -60,15 +60,6 @@ describe('Decrypt', function() {
 		});
 	});
 
-	it('Smsh.me', function(done) {
-		var b = new Bypasser('http://smsh.me/3wqqf');
-		b.decrypt(function(err, result) {
-			expect(err).to.be.null;
-			expect(result).to.equal('https://github.com/matteocontrini/node-bypasser'); // Can't shrink http://github.com
-			done();
-		});
-	});
-
 	it('P.pw', function(done) {
 		var b = new Bypasser('http://p.pw/bai1hN');
 		b.decrypt(function(err, result) {
