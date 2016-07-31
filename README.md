@@ -49,7 +49,6 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * Clk.im
 * Link5s.com
 * Bc.vc
-* Link4ad.net
 * NowVideo and AuroraVid (MP4/FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
