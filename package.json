@@ -13,6 +13,7 @@
     "bc.vc"
   ],
   "author": "Matteo Contrini <m.contrini@gmail.com>",
+  "contributors": ["Khoa Nguyen"],
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.20.0",
