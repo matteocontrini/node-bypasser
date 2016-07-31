@@ -158,4 +158,13 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
+	
+	it.only('FastVideo.me', function(done) {
+		var b = new Bypasser('http://fastvideo.me/0gnpg3sfs3lj');
+		b.decrypt(function(err, result) {
+			expect(err).to.be.null;
+			expect(result.slice(-4)).to.equal('.mp4');
+			done();
+		});
+	});
 });
