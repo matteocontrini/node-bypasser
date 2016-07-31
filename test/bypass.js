@@ -16,7 +16,7 @@ describe('Decrypt', function() {
 	});
 
 	it('Linkbucks', function(done) {
-		var b = new Bypasser('http://www.linkbucks.com/Kutv');
+		var b = new Bypasser('http://www.linkbucks.com/AAqnD');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');
@@ -25,7 +25,7 @@ describe('Decrypt', function() {
 	});
 
 	it('Linkbucks (alternate)', function(done) {
-		var b = new Bypasser('http://www.eafyfsuh.net/LLMl');
+		var b = new Bypasser('http://www.zatnawqy.net/AAnqF');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');
@@ -34,7 +34,7 @@ describe('Decrypt', function() {
 	});
 
 	it('Generic --> Linkbucks', function(done) {
-		var b = new Bypasser('http://www.yyv.co/LLMl');
+		var b = new Bypasser('http://www.cash4files.com/AAnqF');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');

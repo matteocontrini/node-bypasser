@@ -1,6 +1,8 @@
 /*
 	Linkbucks
-	Hosts: linkbucks.com
+	Hosts: linkbucks.com and another one that changes sometimes
+		   NOTE: there is a bunch of other domains, but they usually
+		   		 just redirect to linkbucks.com or the other domain
  */
 
 var request = require('request');
@@ -8,7 +10,7 @@ var request = require('request');
 var Service = require('../service.js');
 
 var service = new Service('Linkbucks');
-service.hosts = ['linkbucks.com', 'eafyfsuh.net'];
+service.hosts = ['linkbucks.com', 'zatnawqy.net'];
 
 service.run = function(url, callback) {
 	request(url, function(error, response, body) {
