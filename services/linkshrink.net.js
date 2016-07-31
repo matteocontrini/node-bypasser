@@ -1,5 +1,5 @@
 /*
-  LinkShrink.net
+	LinkShrink.net
 	Hosts: p.pw
  */
 

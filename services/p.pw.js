@@ -1,5 +1,5 @@
 /*
-  P.pw
+	P.pw
 	Hosts: p.pw
  */
 

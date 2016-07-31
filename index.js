@@ -1,8 +1,5 @@
-// Polyfill for node 0.x
-require('./common.js');
-
-var _url      = require('url');
-var services  = require('./services.js');
+const _url      = require('url');
+const services  = require('./services.js');
 
 /**
  * Bypasser class which handles expansion for one link
@@ -11,6 +8,8 @@ var services  = require('./services.js');
 function Bypasser(url) {
 	this.url = url;
 	this.service = null;
+	
+	// Try to find which service the URL belongs to
 	this.findService();
 }
 
@@ -37,6 +36,7 @@ Bypasser.prototype.findService = function() {
  * @private
  */
 Bypasser._findService = function(url) {
+	// Check if the URL is a valid URL
 	var parsedUrl = _url.parse(url);
 	if (parsedUrl.hostname == null) return null;
 
@@ -48,13 +48,13 @@ Bypasser._findService = function(url) {
 	for (var i = 0; i < services.length && !found; i++) {
 		serv = services[i];
 
-		// Find a match among hostnames
+		// Find matching hostnames
 		for (var j = 0; j < serv.hosts.length && !found; j++) {
 			if (parsedUrl.hostname.endsWith(serv.hosts[j])) {
 				found = true;
 			}
 		}
-
+	
 		// Assign Generic Service
 		if (serv.name == 'Generic') {
 			genericService = serv;
@@ -65,9 +65,10 @@ Bypasser._findService = function(url) {
 	if (found) {
 		return serv;
 	}
-
 	// Otherwise return the generic one
-	return genericService;
+	else {
+		return genericService;
+	}
 };
 
 /**
@@ -75,6 +76,7 @@ Bypasser._findService = function(url) {
  * @param  {Function} callback - Called when a result is ready
  */
 Bypasser.prototype.decrypt = function(callback) {
+	// No service means that the URL is not valid
 	if (!this.service) {
 		callback('This is not a valid url');
 		return;
@@ -86,23 +88,28 @@ Bypasser.prototype.decrypt = function(callback) {
 };
 
 function handleResponse(err, res) {
+	// Something went wrong while fetching the URL
 	if (err) {
-		return this.callback(err);
+		this.callback(err);
+		return;
 	}
-	else {
-		if (this.service.name == 'Generic') {
-			// Search a new service
-			this.url = res;
-			this.findService();
+	
+	// If the service was generic (normal URL redirect)
+	// check if the found new URL needs to be fetched again
+	if (this.service.name == 'Generic') {
+		// Search a new service
+		this.url = res;
+		this.findService();
 
-			if (this.service.name != 'Generic') {
-				this.service.run(this.url, handleResponse.bind(this));
-				return;
-			}
+		// Fetch again with the newly found service
+		if (this.service.name != 'Generic') {
+			this.service.run(this.url, handleResponse.bind(this));
+			return;
 		}
-
-		this.callback(null, res);
 	}
+	
+	// Ok we have a result!
+	this.callback(null, res);
 }
 
 module.exports = Bypasser;

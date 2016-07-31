@@ -6,7 +6,6 @@
 var request = require('request');
 var Service = require('../service.js');
 var _url    = require('url');
-var _ 			= require('lodash');
 
 var service = new Service('Oxyl.me');
 service.hosts = ['oxyl.me'];
@@ -23,7 +22,7 @@ service.run = function(url, callback) {
 		body: {
 			hash: hash
 		},
-		'json': true
+		json: true
 	};
 	request(options, function(error, response, body) {
 		if (error || response.statusCode != 200) {
@@ -31,7 +30,7 @@ service.run = function(url, callback) {
 			return;
 		}
 
-		var links = _.pluck(body.links, 'url');
+		var links = body.links.map(x => x['url']);
 
 		if (links.length === 1) {
 			callback(null, links[0]);

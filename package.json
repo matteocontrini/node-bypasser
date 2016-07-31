@@ -15,9 +15,8 @@
   "author": "Matteo Contrini <m.contrini@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.19.0",
-    "lodash": "^3.10.1",
-    "request": "~2.65.0"
+    "cheerio": "^0.20.0",
+    "request": "^2.74.0"
   },
   "repository": "matteocontrini/node-bypasser",
   "bugs": {
@@ -25,7 +24,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "eslint": "^1.9.0",
+    "eslint": "^3.2.0",
     "mocha": "^2.3.3"
   },
   "scripts": {

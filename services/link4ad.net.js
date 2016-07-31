@@ -1,6 +1,6 @@
 /*
- Link4ad.net
- Hosts: link4ad.net, link4ad.com, link4ad.info
+	Link4ad.net
+	Hosts: link4ad.net, link4ad.com, link4ad.info
  */
 
 var request = require('request');

@@ -16,7 +16,7 @@ service.run = function(url, callback) {
 	};
 	
 	request(options, function(error, response, body) {
-		if (error || [301, 302].indexOf(response.statusCode) == -1) {
+		if (error || [301, 302].includes(response.statusCode)) {
 			callback('URL not recognized as supported');
 			return;
 		}
