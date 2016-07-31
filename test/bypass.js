@@ -149,13 +149,4 @@ describe('Decrypt', function() {
 			done();
 		});
 	});
-
-	it.skip('Link4ad.net', function(done) {
-		var b = new Bypasser('http://link4ad.com/abGaBwGn');
-		b.decrypt(function(err, result) {
-			expect(err).to.be.null;
-			expect(result).to.equal('http://github.com');
-			done();
-		});
-	});
 });
