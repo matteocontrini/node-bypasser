@@ -1,5 +1,5 @@
-# node-bypasser 
-[![Build Status](https://travis-ci.org/matteocontrini/node-bypasser.svg?branch=master)](https://travis-ci.org/matteocontrini/node-bypasser) 
+# node-bypasser
+[![Build Status](https://travis-ci.org/matteocontrini/node-bypasser.svg?branch=master)](https://travis-ci.org/matteocontrini/node-bypasser)
 [![npm version](https://badge.fury.io/js/node-bypasser.svg)](https://badge.fury.io/js/node-bypasser)
 
 Bypass URL shortener websites
@@ -23,7 +23,7 @@ w.decrypt(function(err, result) {
 });
 ```
 
-The output will be 
+The output will be
 ```
 Decrypted: https://github.com/matteocontrini/node-bypasser/
 ```
@@ -34,7 +34,7 @@ Decrypted: https://github.com/matteocontrini/node-bypasser/
 npm run test
 ```
  
-### Travis CI build is failing? 
+### Travis CI build is failing?
 
 Unit tests may occasionally fail when there are network connectivity issues or when services' servers give bad temporary responses.
 
@@ -46,13 +46,9 @@ Unit tests may occasionally fail when there are network connectivity issues or w
 * Smsh.me
 * P.pw
 * LinkShrink.net
-* Clk.im
 * Link5s.com
 * Bc.vc
 * NowVideo and AuroraVid (MP4/FLV video direct link will be extracted)
 * All generic services that use simple 301/302 redirect (goo.gl, bit.ly, t.co,...)
 
 ## [Request a new service](https://github.com/matteocontrini/node-bypasser/issues)
-
-## #next
-* Some video streaming websites

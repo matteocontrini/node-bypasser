@@ -78,15 +78,6 @@ describe('Decrypt', function() {
 		});
 	});
 
-	it('Clk.im', function(done) {
-		var b = new Bypasser('http://clk.im/fovq');
-		b.decrypt(function(err, result) {
-			expect(err).to.be.null;
-			expect(result).to.equal('http://github.com');
-			done();
-		});
-	});
-
 	it('Link5s.com', function(done) {
 		var b = new Bypasser('http://link5s.com/Gmq');
 		b.decrypt(function(err, result) {
