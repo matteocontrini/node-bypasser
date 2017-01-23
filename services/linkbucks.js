@@ -10,7 +10,7 @@ var request = require('request');
 var Service = require('../service.js');
 
 var service = new Service('Linkbucks');
-service.hosts = ['linkbucks.com', 'zatnawqy.net'];
+service.hosts = ['linkbucks.com', 'zatnawqy.net', 'zytpirwai.net'];
 
 service.run = function(url, callback) {
 	request(url, function(error, response, body) {
