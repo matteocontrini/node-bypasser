@@ -7,8 +7,6 @@ var request = require('request');
 
 var Service = require('../service.js');
 
-var cheerio = require('cheerio');
-
 var service = new Service('LinkShrink.net');
 service.hosts = ['linkshrink.net'];
 
@@ -23,9 +21,14 @@ service.run = function(url, callback) {
 			callback('Unexpected response status code. Response code: ' + response.statusCode);
 			return;
 		}
-		var $ = cheerio.load(body);
 		
-		var redirectUrl = $('#skip .bt').attr('href');
+		var match = body.match(/<script>g\.href = "http:\/\/linkshrink.net\/(\w+)";<\/script>/);
+		if (!match) {
+			callback('Cannot find the target URL');
+			return;
+		}
+		
+		var redirectUrl = 'https://linkshrink.net/' + match[1];
 		
 		//TODO : Retractor this
 		request({ url: redirectUrl, followRedirect: false }, function(error, response, body) {

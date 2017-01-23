@@ -70,7 +70,7 @@ describe('Decrypt', function() {
 	});
 
 	it('LinkShrink.net', function(done) {
-		var b = new Bypasser('http://linkshrink.net/7znHwW');
+		var b = new Bypasser('http://linkshrink.net/7bzlRS');
 		b.decrypt(function(err, result) {
 			expect(err).to.be.null;
 			expect(result).to.equal('http://github.com');
