@@ -22,13 +22,13 @@ service.run = function(url, callback) {
 			return;
 		}
 		
-		var match = body.match(/<script>g\.href = "http:\/\/linkshrink.net\/(\w+)";<\/script>/);
+		var match = body.match(/\.href = revC\("(.*?)"\)/);
 		if (!match) {
 			callback('Cannot find the target URL');
 			return;
 		}
 		
-		var redirectUrl = 'https://linkshrink.net/' + match[1];
+		var redirectUrl = 'https://linkshrink.net/' + new Buffer(match[1], 'base64').toString();
 		
 		//TODO : Retractor this
 		request({ url: redirectUrl, followRedirect: false }, function(error, response, body) {
