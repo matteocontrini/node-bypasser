@@ -3,7 +3,6 @@
 	Hosts: p.pw
  */
 
-var vm = require('vm');
 var request = require('request');
 
 var Service = require('../service.js');
@@ -23,23 +22,13 @@ service.run = function(url, callback) {
 			return;
 		}
 		
-		var match = body.match(/\.href = ((\w+)\(.*?\))/);
+		var match = body.match(/\.href = revC\("(.*?)"\)/);
 		if (!match) {
 			callback('Cannot find the target URL');
 			return;
 		}
 		
-		var functionCall = match[1];
-		var functionName = match[2];
-		
-		match = body.match(new RegExp('<script>(function ' + functionName + '\\(.*?})</script>'));
-		if (!match) {
-			callback('Cannot find the decoding function');
-			return;
-		}
-		
-		var redirectUrl = vm.runInNewContext(match[1] + functionCall, {}, { timeout: 100 });
-		redirectUrl = redirectUrl.replace(/^http:/, 'https:');
+		var redirectUrl = 'https://linkshrink.net/' + new Buffer(match[1], 'base64').toString();
 		
 		//TODO : Retractor this
 		request({ url: redirectUrl, followRedirect: false }, function(error, response, body) {
