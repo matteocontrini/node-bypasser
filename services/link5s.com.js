@@ -54,7 +54,11 @@ service.run = function(url, callback) {
 						$ = cheerio.load(body);
 						var link = $('a').attr('href');
 						
-						callback(null, link);
+						if (link === undefined) {
+							callback('The given URL is not found.');
+						} else {
+							callback(null, link);
+						}
 					}
 				});
 				
