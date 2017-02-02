@@ -19,7 +19,7 @@ service.run = function(url, callback) {
 			return;
 		}
 
-		var match = body.match(/{opt:'make_log',args:(.+?)}}/);
+		var match = body.match(/{\s*opt:\s*'make_log',\s*args:\s*{[:,\'\w\s]+}\s*}/);
 		if (!match) {
 			callback('The URL cannot be decrypted');
 			return;
