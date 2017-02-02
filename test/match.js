@@ -44,11 +44,6 @@ describe('Match URL to host', function() {
 		expect(b.service.name).to.equal('LinkShrink.net');
 	});
 
-	it('Clk.im', function() {
-		var b = new Bypasser('http://clk.im/A358O');
-		expect(b.service.name).to.equal('Clk.im');
-	});
-
 	it('Link5s.com', function() {
 		var b = new Bypasser('http://link5s.com/Gmq');
 		expect(b.service.name).to.equal('Link5s.com');
