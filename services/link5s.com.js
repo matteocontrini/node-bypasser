@@ -54,7 +54,12 @@ service.run = function(url, callback) {
 						$ = cheerio.load(body);
 						var link = $('a').attr('href');
 						
-						callback(null, link);
+						if (link) {
+							callback(null, link);
+						}
+						else {
+							callback('The URL cannot be decrypted');
+						}
 					}
 				});
 				
