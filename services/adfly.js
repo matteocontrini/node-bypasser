@@ -20,9 +20,9 @@ service.run = function(url, callback) {
 		var match = body.match(/var ysmm = '(.*?)';/);
 		if (match) {
 			var ysmm = match[1];
-			let a = '';
-			let b = '';
-			for (let i = 0; i < ysmm.length; ++i) {
+			var a = '';
+			var b = '';
+			for (var i = 0; i < ysmm.length; ++i) {
 				if (i % 2 === 0) {
 				a = a + ysmm.charAt(i);
 				} else {
@@ -31,9 +31,9 @@ service.run = function(url, callback) {
 			}
 			ysmm = a + b;
 			a = ysmm.split('');
-			for (let i = 0; i < a.length; ++i) {
+			for (var i = 0; i < a.length; ++i) {
 				if (/\d/.test(a[i])) {
-				for (let j = i + 1; j < a.length; ++j) {
+				for (var j = i + 1; j < a.length; ++j) {
 					if (/\d/.test(a[j])) {
 					b = a[i] ^ a[j];
 					if (b < 10) {
