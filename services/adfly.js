@@ -1,7 +1,7 @@
 /*
 	Adf.ly
 	Hosts: adf.ly
- */
+*/
 
 var request = require('request');
 
@@ -23,27 +23,27 @@ service.run = function(url, callback) {
 			let a = '';
 			let b = '';
 			for (let i = 0; i < ysmm.length; ++i) {
-			  if (i % 2 === 0) {
-			    a = a + ysmm.charAt(i);
-			  } else {
-			    b = ysmm.charAt(i) + b;
-			  }
+				if (i % 2 === 0) {
+				a = a + ysmm.charAt(i);
+				} else {
+				b = ysmm.charAt(i) + b;
+				}
 			}
 			ysmm = a + b;
 			a = ysmm.split('');
 			for (let i = 0; i < a.length; ++i) {
-			  if (/\d/.test(a[i])) {
-			    for (let j = i + 1; j < a.length; ++j) {
-			      if (/\d/.test(a[j])) {
-			        b = a[i] ^ a[j];
-			        if (b < 10) {
-			          a[i] = b;
-			        }
-			        i = j;
-			        j = a.length;
-			      }
-			    }
-			  }
+				if (/\d/.test(a[i])) {
+				for (let j = i + 1; j < a.length; ++j) {
+					if (/\d/.test(a[j])) {
+					b = a[i] ^ a[j];
+					if (b < 10) {
+						a[i] = b;
+					}
+					i = j;
+					j = a.length;
+					}
+				}
+				}
 			}
 			ysmm = a.join('');
 			ysmm = new Buffer(ysmm, 'base64').toString('ascii');
